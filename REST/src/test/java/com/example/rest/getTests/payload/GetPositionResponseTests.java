@@ -36,6 +36,8 @@ public class GetPositionResponseTests {
 
     @BeforeEach
     void init() {
+        positionRepository.deleteAll();
+        deviceRepository.deleteAll();
         testDevice = new Device();
         testDevice.setDevicename("Test device name");
         testDevice.setDevicetype("Test device type");

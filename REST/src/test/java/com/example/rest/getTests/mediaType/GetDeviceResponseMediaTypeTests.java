@@ -2,6 +2,7 @@ package com.example.rest.getTests.mediaType;
 
 import com.example.rest.model.Device;
 import com.example.rest.repository.DeviceRepositoryI;
+import com.example.rest.repository.PositionRepositoryI;
 import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -23,10 +24,14 @@ public class GetDeviceResponseMediaTypeTests {
     @Autowired
     private DeviceRepositoryI deviceRepository;
 
+    @Autowired
+    private PositionRepositoryI positionRepository;
+
     Device testDevice;
 
     @BeforeEach
     void init() {
+        positionRepository.deleteAll();
         deviceRepository.deleteAll();
         testDevice = new Device();
         testDevice.setDevicename("Test device name");
@@ -37,6 +42,7 @@ public class GetDeviceResponseMediaTypeTests {
 
     @AfterEach
     void end() {
+        positionRepository.deleteAll();
         deviceRepository.deleteAll();
     }
 

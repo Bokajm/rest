@@ -2,6 +2,7 @@ package com.example.rest.getTests.status;
 
 import com.example.rest.model.Device;
 import com.example.rest.repository.DeviceRepositoryI;
+import com.example.rest.repository.PositionRepositoryI;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -25,10 +26,15 @@ public class GetDeviceHttpStatusTests {
     @Autowired
     private DeviceRepositoryI deviceRepository;
 
+    @Autowired
+    private PositionRepositoryI positionRepository;
+
     Device testDevice;
 
     @BeforeEach
     void init() {
+        positionRepository.deleteAll();
+        deviceRepository.deleteAll();
         testDevice = new Device();
         testDevice.setDevicename("Test device name");
         testDevice.setDevicetype("Test device type");
@@ -38,6 +44,7 @@ public class GetDeviceHttpStatusTests {
 
     @AfterEach
     void end() {
+        positionRepository.deleteAll();
         deviceRepository.deleteAll();
     }
 

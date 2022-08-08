@@ -1,7 +1,10 @@
 package com.example.rest.postTests.mediaType;
 
+import com.example.rest.repository.DeviceRepositoryI;
+import com.example.rest.repository.PositionRepositoryI;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +25,18 @@ public class PostDeviceResponseMediaTypeTests {
 
     @Autowired
     private MockMvc mockMvc;
+
+    @Autowired
+    private DeviceRepositoryI deviceRepository;
+
+    @Autowired
+    private PositionRepositoryI positionRepository;
+
+    @AfterEach
+    void end() {
+        positionRepository.deleteAll();
+        deviceRepository.deleteAll();
+    }
 
     @Test
     @DisplayName("Test if correct POST on /devices returns application/json media type")

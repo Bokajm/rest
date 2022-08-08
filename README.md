@@ -39,6 +39,8 @@ Po uruchomieniu usługi dostęp do bazy można uzyskać wchodząc na adres: http
 W celu użycia konsoli należy podać: 
 <br>w  polu JDBC URL: jdbc:h2:mem:testdb, 
 <br> w polu User Name: sa
+
+Podczas uruchomienia do bazy są wprowadzane przykładowe dane umożliwające przegląd zawartości.
 <br> <br>
 
 ### Klasy

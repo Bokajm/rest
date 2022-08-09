@@ -71,6 +71,10 @@ public class DeviceController {
             logger.info("Device with this id already exists, editing not allowed, sending response");
             return new ResponseEntity<>(HttpStatus.FORBIDDEN);
         }
+        if(device.getPositions() != null) {
+            logger.info("Received device with positions, operation not allowed, sending response");
+            return new ResponseEntity<>(HttpStatus.FORBIDDEN);
+        }
         Device resultDevice = deviceService.addDevice(device);
         if(resultDevice == null) {
             logger.info("Could not process entity, sending response");

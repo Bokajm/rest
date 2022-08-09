@@ -1,3 +1,5 @@
+--liquibase formatted sql
+--changeset jmargol:4
 insert INTO DEVICE(id, devicename, devicetype) values (12345, 'device1', 'phone');
 insert INTO DEVICE(id, devicename, devicetype) values (12412, 'device2', 'phone');
 insert INTO DEVICE(id, devicename, devicetype) values (52353, 'device3', 'GPS');

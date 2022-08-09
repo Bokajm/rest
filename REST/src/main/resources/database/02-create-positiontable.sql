@@ -1,9 +1,5 @@
-CREATE TABLE DEVICE (
-    id BIGINT AUTO_INCREMENT PRIMARY KEY,
-    devicename varchar(200) NULL,
-    devicetype varchar(200) NULL
-);
-
+--liquibase formatted sql
+--changeset jmargol:2
 CREATE TABLE POSITION (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
     deviceid BIGINT NOT NULL,
@@ -13,6 +9,7 @@ CREATE TABLE POSITION (
     CHECK (longitude BETWEEN -180 AND 180)
 );
 
+--changeset jmargol:3
 ALTER TABLE POSITION
     ADD CONSTRAINT position_deviceid
-    FOREIGN KEY (deviceid) REFERENCES device(id)
+        FOREIGN KEY (deviceid) REFERENCES device(id)
